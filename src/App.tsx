@@ -1,21 +1,36 @@
 import * as React from 'react';
+import { Component } from 'react';
 import './App.css';
+import { AppReel } from './components/AppReel';
+import { AppRemote } from './components/AppRemote';
 
-const logo = require('./logo.svg');
+interface Props {}
+interface State { playing: boolean; }
 
-class App extends React.Component {
+class App extends Component<{}, State> {
+
+  constructor(props: Props) {
+    super(props);
+    this.state = { playing: false };
+  }
+
   render() {
     return (
       <div className="App">
+
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <AppReel playing={this.state.playing} />
+          <h1 className="App-title">MAGNETO</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+
+        <AppRemote playstop={this.playstop} />
+
       </div>
     );
+  }
+
+  private playstop = () => {
+    this.setState({ playing: this.state.playing ? false : true });
   }
 }
 

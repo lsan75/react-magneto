@@ -2,13 +2,17 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.App-logo-stopped {
   height: 80px;
 }
 
+.App-logo-started {
+  height: 80px;
+  animation: App-logo-spin infinite 10s ease-out;
+}
+
 .App-header {
-  background-color: #222;
+  background-color: #444;
   height: 150px;
   padding: 20px;
   color: white;
