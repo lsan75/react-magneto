@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Component } from 'react';
 import './App.css';
 import { AppReel } from './components/AppReel';
 import { AppRemote } from './components/AppRemote';
 
 interface Props {}
 interface State { playing: boolean; }
-
-class App extends Component<{}, State> {
+class App extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
@@ -30,7 +28,7 @@ class App extends Component<{}, State> {
   }
 
   private playstop = () => {
-    this.setState({ playing: this.state.playing ? false : true });
+    this.setState({ playing: !this.state.playing });
   }
 }
 

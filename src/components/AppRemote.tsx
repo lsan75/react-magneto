@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Component } from 'react';
 
 interface Props {
   playstop(): void;
 }
 
-export class AppRemote extends Component<Props, {}> {
+export class AppRemote extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
