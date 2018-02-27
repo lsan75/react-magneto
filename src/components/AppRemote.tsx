@@ -13,12 +13,9 @@ export class AppRemote extends React.Component<Props> {
   render() {
     return (
       <article>
-        <a href="#" onClick={this.playstop}>Play</a>
+        <a href="#" onClick={this.props.playstop}>Play</a>
       </article>
     );
   }
 
-  private playstop = (): void => {
-    this.props.playstop();
-  }
 }
