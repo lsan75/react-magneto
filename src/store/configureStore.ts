@@ -4,12 +4,11 @@ import { rootReducer } from './rootReducer';
 import { defaulStore } from './root';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export default function configureStore() {
-  return createStore(
-    rootReducer,
-    defaulStore,
-    composeWithDevTools(applyMiddleware(
-      thunkMiddleware
-    ))
-  );
-}
+// configure redux
+export const store = createStore(
+  rootReducer,
+  defaulStore,
+  composeWithDevTools(applyMiddleware(
+    thunkMiddleware
+  ))
+);

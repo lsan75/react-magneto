@@ -11,9 +11,10 @@ export class AppRemote extends React.Component<Props> {
   }
 
   render() {
+    const { playstop } = this.props;
     return (
       <article>
-        <a href="#" onClick={this.props.playstop}>Play</a>
+        <button onClick={playstop}>Play</button>
       </article>
     );
   }

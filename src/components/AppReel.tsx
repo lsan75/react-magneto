@@ -16,8 +16,9 @@ export class AppReel extends React.Component<Props>  {
   }
 
   render() {
+    const { playing } = this.props;
     return (
-      <img src={logo} className={this.props.playing ? this.play : this.stop} alt="logo" />
+      <img src={logo} className={playing ? this.play : this.stop} alt="logo" />
     );
   }
 }
