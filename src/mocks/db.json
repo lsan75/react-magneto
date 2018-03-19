@@ -1,0 +1,24 @@
+{
+  "playlists": [
+    {
+      "id": 1,
+      "title": "My First Playlist",
+      "tracks": [
+        {
+          "id": 1,
+          "band": "The Jesus & Mary Chain",
+          "title": "Some Candy Talking",
+          "picture": "",
+          "url": ""
+        },
+        {
+          "id": 2,
+          "band": "Joy Division",
+          "title": "Dead Souls",
+          "picture": "",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

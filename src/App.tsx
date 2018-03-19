@@ -6,7 +6,8 @@ import { store } from './store/configureStore';
 import AppHome from './features/home/AppHome';
 import AppList from './features/list/AppList';
 
-export class App extends React.Component {
+export default class App extends React.Component<{}> {
+
   render() {
     return (
       <Provider store={store}>
@@ -19,4 +20,5 @@ export class App extends React.Component {
       </Provider>
     );
   }
+
 }

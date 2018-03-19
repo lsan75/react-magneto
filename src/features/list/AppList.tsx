@@ -2,15 +2,21 @@ import * as React from 'react';
 import './AppList.css';
 import { AppReel } from '../../components/AppReel';
 import { AppRemote } from '../../components/AppRemote';
+import { AppPlaylist } from '../../components/AppPlaylist';
 import { connect } from 'react-redux';
 import { Store } from '../../store/root';
 import { playstop } from '../../store/player/player.actions';
-import { Action, bindActionCreators } from 'redux';
+import { Action } from 'redux';
 import { Link } from 'react-router-dom';
+
+import { getPlaylists, PlaylistAction } from '../../store/playlists/playlist.actions';
+import { Playlist } from '../../store/playlists/playlist';
 
 interface Props {
   play: boolean;
+  playlists: Playlist[];
   playit(): Action;
+  getPlaylists(): PlaylistAction;
 }
 
 export class AppList extends React.Component<Props> {
@@ -19,8 +25,12 @@ export class AppList extends React.Component<Props> {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getPlaylists();
+  }
+
   render() {
-    const { play, playit } = this.props;
+    const { play, playlists, playit } = this.props;
     return (
       <div className="App">
 
@@ -32,21 +42,24 @@ export class AppList extends React.Component<Props> {
 
         <AppRemote playstop={playit} />
 
+        <AppPlaylist playlists={playlists} />
       </div>
+
     );
   }
-
 }
 
 export default connect(
-  (state: Store, ownProps) => {
+  (state: Store) => {
     return {
-      play: state.player.playing
+      play: state.player.playing,
+      playlists: state.playlist.playlists
     };
   },
   (dispatch) => {
     return {
-      playit: bindActionCreators(playstop, dispatch)
+      playit: () => dispatch(playstop()),
+      getPlaylists: () => dispatch(getPlaylists())
     };
   }
 )(AppList);
