@@ -6,7 +6,7 @@ import { AppPlaylist } from '../../components/AppPlaylist';
 import { connect } from 'react-redux';
 import { Store } from '../../store/root';
 import { playstop } from '../../store/player/player.actions';
-import { Action } from 'redux';
+import { Action, Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
 
 import { getPlaylists, PlaylistAction } from '../../store/playlists/playlist.actions';
@@ -49,17 +49,21 @@ export class AppList extends React.Component<Props> {
   }
 }
 
+const mapStateToProps = (state: Store) => {
+  return {
+    play: state.player.playing,
+    playlists: state.playlist.playlists
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch<Props>) => {
+  return {
+    playit: () => dispatch(playstop()),
+    getPlaylists: () => dispatch(getPlaylists())
+  };
+};
+
 export default connect(
-  (state: Store) => {
-    return {
-      play: state.player.playing,
-      playlists: state.playlist.playlists
-    };
-  },
-  (dispatch) => {
-    return {
-      playit: () => dispatch(playstop()),
-      getPlaylists: () => dispatch(getPlaylists())
-    };
-  }
+  mapStateToProps,
+  mapDispatchToProps
 )(AppList);

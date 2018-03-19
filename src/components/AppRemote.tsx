@@ -4,19 +4,11 @@ interface Props {
   playstop(): void;
 }
 
-export class AppRemote extends React.Component<Props> {
-
-  constructor(props: Props) {
-    super(props);
-  }
-
-  render() {
-    const { playstop } = this.props;
-    return (
-      <article>
-        <button onClick={playstop}>Play</button>
-      </article>
-    );
-  }
-
+export function AppRemote(props: Props) {
+  const { playstop } = props;
+  return (
+    <article>
+      <button onClick={playstop}>Play</button>
+    </article>
+  );
 }

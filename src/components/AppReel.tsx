@@ -6,19 +6,13 @@ interface Props {
   playing: boolean;
 }
 
-export class AppReel extends React.Component<Props>  {
+export function AppReel(props: Props) {
 
-  private play = 'App-logo-started';
-  private stop = 'App-logo-stopped';
+  const play = 'App-logo-started';
+  const stop = 'App-logo-stopped';
 
-  constructor(props: Props) {
-    super(props);
-  }
-
-  render() {
-    const { playing } = this.props;
-    return (
-      <img src={logo} className={playing ? this.play : this.stop} alt="logo" />
-    );
-  }
+  const { playing } = props;
+  return (
+    <img src={logo} className={playing ? play : stop} alt="logo" />
+  );
 }
