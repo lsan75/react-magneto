@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/configureStore';
 
 import AppHome from './features/home/AppHome';
 import AppList from './features/list/AppList';
+import AppDetail from './features/detail/AppDetail';
 
 export default class App extends React.Component<{}> {
 
@@ -12,10 +13,12 @@ export default class App extends React.Component<{}> {
     return (
       <Provider store={store}>
         <Router>
-          <div>
-            <Route exact={true} path="/" component={AppHome} />
+          <Switch>
+            <Route exact={true} path="/home" component={AppHome} />
             <Route path="/list" component={AppList} />
-          </div>
+            <Route path="/detail/:id" component={AppDetail} />
+            <Redirect from="/" to="/home" />
+          </Switch>
         </Router>
       </Provider>
     );

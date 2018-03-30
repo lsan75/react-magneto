@@ -16,6 +16,8 @@ export function getPlaylists() {
   return (dispatch: Dispatch<PlaylistAction>): void => {
     axios.get('/playlists').then((value: AxiosResponse<Playlist[]>) => {
       dispatch(loadPlaylists(value.data));
+    }).catch(reason => {
+      window.console.log(reason);
     });
   };
 }
