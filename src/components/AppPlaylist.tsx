@@ -9,6 +9,7 @@ interface Props {
 export function AppPlaylist(props: Props) {
 
   const { playlists } = props;
+
   const playlist = playlists.map((item: Playlist) => {
     const link = `/detail/${item.id}`;
     return (
@@ -17,6 +18,7 @@ export function AppPlaylist(props: Props) {
       </li>
     );
   });
+
   return (
     <ul>{playlist}</ul>
   );

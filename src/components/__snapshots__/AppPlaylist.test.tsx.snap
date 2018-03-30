@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playlist should render correctly 1`] = `
+<ul>
+  <li
+    key="1"
+  >
+    <Link
+      replace={false}
+      to="/detail/1"
+    >
+      pan
+    </Link>
+  </li>
+</ul>
+`;
