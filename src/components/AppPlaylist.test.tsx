@@ -19,6 +19,5 @@ describe('Playlist', () => {
     );
 
     expect(shallowToJson(output)).toMatchSnapshot();
-
   });
 });
